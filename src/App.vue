@@ -4,9 +4,9 @@
 
       <app-form-select
         title="Тип блока"
+        disabled="Выберите из списка"
         :options="selector"
         v-model:selected="selected"
-        disabled="Выберите из списка"
       ></app-form-select>
 
       <app-text-area
@@ -43,7 +43,6 @@
 </template>
 
 <script>
-
 import AppTextArea from "./components/AppTextArea"
 import AppFormSelect from "./components/AppFormSelect"
 import AppButton from "./components/AppButton"
@@ -89,9 +88,6 @@ export default {
       })
 
       this.clearForm()
-    },
-    selectorAction(value) {
-      this.selected = value
     },
     clearForm() {
       this.selected = 'header'
