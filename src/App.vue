@@ -34,12 +34,12 @@
     </div>
   </div>
 
-  <app-loader v-if="loading"></app-loader>
-
   <app-comments-list
     :comments="comments"
     @load="loadComments"
   ></app-comments-list>
+
+  <app-loader v-if="loading"></app-loader>
 
 </template>
 
@@ -53,6 +53,7 @@ import AppText from "./AppText"
 import AppCommentsList from "./AppCommentsList"
 import AppLoader from './AppLoader'
 import axios from "axios"
+
 export default {
   components: {AppText, AppTextArea, AppFormSelect, AppButton, AppAvatar, AppCommentsList, AppLoader},
   data() {
@@ -82,12 +83,9 @@ export default {
 
       this.componentOptions.forEach(component => {
         const {type, data} = component
-
         if (type === this.selected) {
           data.text = this.formValue
           this.resume.push(JSON.parse(JSON.stringify(component)))
-          //this.resume.push(Object.assign(component))
-          //this.resume.push({...component})
         }
       })
 

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div v-if="comments.length === 0">
+    <div v-if="!comments.length">
       <button class="btn primary" @click="$emit('load')">Загрузить комментарии</button>
     </div>
     <div v-else class="card" >
@@ -25,10 +25,14 @@ export default {
       type: Object,
       require: false,
       default: {}
-    }
+    },
+    loading: Boolean
   },
   data() {
     return {}
+  },
+  computed: {
+
   }
 }
 </script>
