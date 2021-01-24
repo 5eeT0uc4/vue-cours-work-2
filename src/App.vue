@@ -5,9 +5,8 @@
       <app-form-select
         title="Тип блока"
         :options="selector"
-        :selected="selected"
+        v-model:selected="selected"
         disabled="Выберите из списка"
-        @action="selectorAction"
       ></app-form-select>
 
       <app-text-area
@@ -45,13 +44,13 @@
 
 <script>
 
-import AppTextArea from "./AppTextArea"
-import AppFormSelect from "./AppFormSelect"
-import AppButton from "./AppButton"
-import AppAvatar from "./AppAvatar"
-import AppText from "./AppText"
-import AppCommentsList from "./AppCommentsList"
-import AppLoader from './AppLoader'
+import AppTextArea from "./components/AppTextArea"
+import AppFormSelect from "./components/AppFormSelect"
+import AppButton from "./components/AppButton"
+import AppAvatar from "./components/AppAvatar"
+import AppText from "./components/AppText"
+import AppCommentsList from "./components/AppCommentsList"
+import AppLoader from './components/AppLoader'
 import axios from "axios"
 
 export default {

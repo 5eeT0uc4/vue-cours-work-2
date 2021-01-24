@@ -2,9 +2,10 @@
   <div class="form-control">
     <label for="custom-selector">{{ title }}</label>
     <select
-      id="custom-selector"
-      v-model="selected"
       v-if="options.length"
+      id="custom-selector"
+      :selected="selected"
+      @change="$emit('update:selected', $event.target.value)"
     >
       <option v-if="disabled.length" disabled value="">{{ disabled }}</option>
       <option
@@ -21,7 +22,7 @@
 
 <script>
 export default {
-  emits: ['action'],
+  emits: ['update:selected'],
   props: {
     options: {
       type: Array,
@@ -49,11 +50,6 @@ export default {
       type: String,
       required: false,
       default: '',
-    }
-  },
-  watch: {
-    selected(value) {
-      this.$emit('action', value)
     }
   }
 }
